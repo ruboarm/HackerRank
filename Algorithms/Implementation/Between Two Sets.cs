@@ -38,7 +38,7 @@ class Result
             var factorOfAll = true;
             
             foreach(var ai in a){
-                if(amax % ai != 0){
+                if(amaxwithcounter % ai != 0){
                     factorOfAll = false;
                     break;
                 }
