@@ -27,8 +27,10 @@ class Result
 
     public static int birthdayCakeCandles(List<int> candles)
     {
-		// Time Limit
-        return candles.Count(c=>c==candles.Max());
+		// Get the max value
+		int maxVal = candles.Max();
+		// Return count of max values
+        return candles.Count(c=>c==maxVal);
     }
 
 }
