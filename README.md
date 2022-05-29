@@ -7,7 +7,7 @@
 
 
 <p align="center">
-	<img src="https://img.shields.io/badge/Problems%20Solved-20-brightgreen.svg">
+	<img src="https://img.shields.io/badge/Problems%20Solved-22-brightgreen.svg">
 	<img src="https://img.shields.io/badge/Language-CSharp-orange.svg">
 	<img src="https://img.shields.io/badge/Latest%20Update-28/05/2022-brightgreen.svg">
 </p>
