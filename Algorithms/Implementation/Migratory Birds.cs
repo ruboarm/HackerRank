@@ -27,14 +27,14 @@ class Result
 
     public static int migratoryBirds(List<int> arr)
     {
-        List<int> counts = new List<int>(5) {0,0,0,0,0};
+        List<int> typeCounts = new List<int>(5) {0,0,0,0,0};
         
         foreach(var i in arr){
-            counts[i+1]++;
+            typeCounts[i-1]++;
         }
         
-		// Compiler Error
-        return counts.Where(i=>i==counts.Max());
+        int firstmax = typeCounts.Max();
+        return typeCounts.IndexOf(firstmax) + 1;
     }
 
 }
