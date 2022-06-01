@@ -1,4 +1,5 @@
-// Problem:   https://www.hackerrank.com/challenges/day-of-the-programmer/problem
+// Problem: https://www.hackerrank.com/challenges/day-of-the-programmer/problem
+
 
 
 using System.CodeDom.Compiler;
@@ -27,22 +28,30 @@ class Result
 
     public static string dayOfProgrammer(int year)
     {
-        bool leapYear = year%4==0 ? true : false;
+        // Define total days near 256
+        int tillSeptember = 31+28+31+30+31+30+31+31; // 243
         
-        // Calculate total days till September - 243
-        int tillSeptember = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31;
-        int mm = 9;
-        
-        if(leapYear)
-            tillSeptember += 1;
-            
-        // 1918 was change year, so add 13 days
+        // In switch Year there was 13 days less, so extract 13 from total days
         if(year==1918)
-            tillSeptember+=13; // 229/230
-            
-        int dd = 256-tillSeptember;
+            tillSeptember-=13;
         
-        return dd + ".0" + mm + "." + year;
+        // Define leapYear variable
+        bool leapYear = false;
+        
+        // Check leap year variants
+        if(year<=1918)
+            // Julian Calendar
+            leapYear = year%4==0 ? true : false;
+        else
+            // Georgian Calendar
+            leapYear = year%400==0 || (year%4==0 && year%100!=0) ? true : false;
+        
+        // If the Year is leap, increase number of days by 1
+        if(leapYear)
+            tillSeptember++;
+        
+        // Always the month is September (09)
+        return (256-tillSeptember) + ".09." + year;
     }
 
 }
