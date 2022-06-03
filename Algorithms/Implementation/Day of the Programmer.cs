@@ -41,10 +41,12 @@ class Result
         // Check leap year variants
         if(year<=1918)
             // Julian Calendar
-            leapYear = year%4==0 ? true : false;
+            if(year%4==0)
+                leapYear = true;
         else
             // Georgian Calendar
-            leapYear = year%400==0 || (year%4==0 && year%100!=0) ? true : false;
+            if(year%400==0 || (year%4==0 && year%100!=0))
+                leapYear = true;
         
         // If the Year is leap, increase number of days by 1
         if(leapYear)
