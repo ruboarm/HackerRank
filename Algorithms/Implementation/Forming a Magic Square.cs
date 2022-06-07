@@ -36,7 +36,7 @@ class Result
             new List<List<int>>(){new List<int>(){8,3,4}, new List<int>(){1,5,9}, new List<int>(){6,7,2}},
             new List<List<int>>(){new List<int>(){4,3,8}, new List<int>(){9,5,1}, new List<int>(){2,7,6}},
             new List<List<int>>(){new List<int>(){6,7,2}, new List<int>(){1,5,9}, new List<int>(){8,3,4}},
-            new List<List<int>>(){new List<int>(){2,7,6}, new List<int>(){5,9,1}, new List<int>(){4,3,8}}
+            new List<List<int>>(){new List<int>(){2,7,6}, new List<int>(){9,5,1}, new List<int>(){4,3,8}}
         };
         
         // Define mincost variable for return
