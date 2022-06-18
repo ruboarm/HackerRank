@@ -35,30 +35,40 @@ class Result
         // Remove duplicates, in order to use a loop
         List<int> rankedunique = ranked.Distinct().ToList();
         
-        // Loop through each player to find ranks
-        for(int p=0; p<player.Count; p++){
-			var currentPlayer = player[p];
-			
-			// Loop through leaderboard ranks and find ranks for each player
-            for(int r=rankedunique.Count-1; r>=0; r--){
-				var currentRank = rankedunique[r];
+        // Define start index for rank loop
+        int i = rankedunique.Count-1;
+        
+        // Find ranks for each
+        for(int j=0; j<player.Count; j++){
+            var currentPlayer = player[j];
+            
+            // Define check for setting the value true when the rank found
+            bool rankFound = false;
+			// Loop through ranks to find needed rank for current player
+			// and set rankFound=true when it's found
+            while(!rankFound && i>=0){
+                var currentRank = rankedunique[i];
+                
                 // Increase the rank by 2, as index starts from 0
                 // and it must be next rank
-				if(currentPlayer<currentRank){
-                    ranks.Add(r+1+1);
-                    break;
+                if(currentPlayer<currentRank){
+                    ranks.Add(i+2);
+                    rankFound=true;
                 }
                 // Increase the rank by 1, as index starts from 0
-                // and it must be the same index
+                // and it must be the same rank
                 else if(currentPlayer==currentRank){
-                    ranks.Add(r+1);
-                    break;
+                    ranks.Add(i+1);
+                    rankFound=true;
                 }
-                // The rank is out leaderboard, so it must be 1
-                else if(currentPlayer>rankedunique[0]){
-                    ranks.Add(1);
-                    break;
+                else{
+                    i--;
                 }
+            }
+            
+            // If still rank not found, the value is beager the max rank value, so in this case it is "rank 1"
+            if(!rankFound){
+                ranks.Add(1);
             }
         }
         
