@@ -48,7 +48,7 @@ class Result
                     ranks.Add(r+1+1);
                     break;
                 }
-                // Increase the rank by 2, as index starts from 0
+                // Increase the rank by 1, as index starts from 0
                 // and it must be the same index
                 else if(currentPlayer==currentRank){
                     ranks.Add(r+1);
