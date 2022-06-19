@@ -1,6 +1,3 @@
-// Problem:   https://www.hackerrank.com/challenges/mini-max-sum/problem
-
-
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections;
@@ -26,16 +23,15 @@ class Result
 
     public static void miniMaxSum(List<int> arr)
     {
-        List<long> sums = new List<long>(arr.Count);
+        if (arr.Count > 0){
+            // First of all convert array to Int64 list
+            List<Int64> arr64 = arr.Select(v => Convert.ToInt64(v)).ToList();
+            // Get the SUM of array values
+            Int64 sumMax = arr64.Sum();
 
-        int summax = arr.Sum();
-        for (int i = 0; i < arr.Count; i++)
-        {
-            sums.Add(Convert.ToInt64(summax - arr[i]));
+            // Print SUM-MAX and SUM-MIN
+            Console.WriteLine((sumMax - arr64.Max()) + " " + (sumMax - arr64.Min()));
         }
-
-        if (sums.Count > 0)
-            Console.WriteLine(sums.Min() + " " + sums.Max());
         else
             Console.WriteLine("");
     }
