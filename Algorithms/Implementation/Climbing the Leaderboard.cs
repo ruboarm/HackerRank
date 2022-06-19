@@ -1,4 +1,6 @@
 // Problem:   https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem
+// Time Complexity: O(NLogM)
+// Space Complexity: O(1)
 
 
 using System.CodeDom.Compiler;
